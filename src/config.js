@@ -1,5 +1,5 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
+import uiRouter from '@uirouter/angularjs';
 //import todoFactory from 'factories/todo-factory';
 //import blogsController from 'blogs/blogs';
 
@@ -11,8 +11,12 @@ app.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 $stateProvider
     .state('index', {
         url: '/',
-        template: require('./index.html')
+        template: 'home/home.html'
     })
+    // .state('index', {
+    //     url: '/',
+    //     template: require('./index.html')
+    // })
     .state('create', {
          url: '/create',
          template: require('create/create.html')
