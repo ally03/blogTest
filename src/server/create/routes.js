@@ -10,11 +10,13 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
     var blog = new BlogTest(req.body);
     blog.save(function (err) {
-        if (err) {console.log(err);}
-
+        // if (err) {console.log(err);}
+        if (err){
+            return res.send();
+        }
         console.log('SAVED!!!');
         res.send('SUCCESS!');
-        res.send('saved');
+        // res.send('saved');
     });
 });
 
