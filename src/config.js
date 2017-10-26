@@ -1,7 +1,10 @@
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
-//import todoFactory from 'factories/todo-factory';
-//import blogsController from 'blogs/blogs';
+//import postController from 'post/post';
+//import appModule from 'post/post';
+//import createFactory from 'factories/create-factory';
+// import createController from 'create/create';
+
 
 const app = angular.module('app', [uiRouter]);
 
@@ -13,13 +16,17 @@ $stateProvider
         url: '/',
         template: 'home/home.html'
     })
-    // .state('index', {
-    //     url: '/',
-    //     template: require('./index.html')
-    // })
+    .state('post', {
+        url: '/post',
+        template: require('post/post.html'),
+        controller: 'postController',
+        controllerAs: 'post'
+    })
     .state('create', {
          url: '/create',
-         template: require('create/create.html')
+         template: require('create/create.html'),
+         controller: 'createController',
+         controllerAs: 'create'
     });
 
 $locationProvider.html5Mode(true);
@@ -30,4 +37,38 @@ app.controller('navController', ['$scope', function ($scope) {
 
 }]);
 
+app.controller('postController', ['$scope', function ($scope) {
+
+}]);
+
+app.controller('createController', ['$scope', '$http', function ($scope, $http) {
+        function getTasks($scope) {
+        $http.get('/create').then(response => {
+            console.log('reponse',response);
+        $scope.create = response.data.create;
+    })
+    }
+
+
+    var objectArray = [];
+
+
+    $scope.createTask = function ($scope, params) {
+        objectArray.push({
+            title: this.createTaskInput,
+            detail: this.detailTaskInput
+        });
+        $http.post('/create', {
+            title: this.createTaskInput,
+        }).then(response => {
+            //getTasks($scope);
+            //.createTaskInput = '';
+        console.log(response);
+        })
+
+
+    };
+
+    console.log('objectArray',objectArray);
+}]);
 export default app;

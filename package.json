@@ -19,7 +19,8 @@
     "jquery": "^2.2.4",
     "kerberos": "0.0.18",
     "lodash": "^4.17.4",
-    "mongoose": "^4.12.3"
+    "mongojs": "^2.4.1",
+    "mongoose": "^4.12.4"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",

@@ -1,4 +1,4 @@
-<form class="form-horizontal">
+<form ng-submit="createTask()" class="form-horizontal">
     <fieldset>
 
         <!-- Form Name -->
@@ -8,7 +8,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput" >Blog Title</label>
             <div class="col-md-4">
-                <input ng-model="createTask" id="textinput" name="textinput" type="text" placeholder="Title" class="form-control input-md">
+                <input ng-model="createTaskInput" id="textinput" name="textinput" type="text" placeholder="Title" class="form-control input-md">
             </div>
         </div>
 
@@ -27,14 +27,21 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="textarea">Blog Detail</label>
             <div class="col-md-4">
-                <textarea class="form-control" id="textarea" name="textarea">default text</textarea>
+                <textarea ng-model="detailTaskInput" class="form-control" id="textarea" name="textarea">default text</textarea>
             </div>
         </div>
 
         <!-- Button -->
+        <!--<div class="form-group">-->
+            <!--<div class="col-md-4 control-label">-->
+                <!--<a  id="singlebutton" name="singlebutton" class="btn btn-primary" >Submit</a>-->
+            <!--</div>-->
+        <!--</div-->
+
         <div class="form-group">
-            <div class="col-md-4 control-label">
-                <a href="#!/submit" id="singlebutton" name="singlebutton" class="btn btn-primary" ng-click="submit()">Submit</a>
+            <label class="col-md-4 control-label" for="submit"></label>
+            <div class="col-md-4">
+                <button id="submit" name="submit" class="btn btn-primary">submit</button>
             </div>
         </div>
 
