@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/create');
 
 var BlogTest = mongoose.model('BlogTest', mongoose.Schema({
