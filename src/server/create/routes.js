@@ -4,6 +4,11 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function (req, res) {
+    BlogTest.find(function (err, results) {
+        if (err) { console.log(err); }
+
+        res.send({ create: results });
+    });
 
 });
 

@@ -37,16 +37,22 @@ app.controller('navController', ['$scope', function ($scope) {
 
 }]);
 
-app.controller('postController', ['$scope', function ($scope) {
-
-}]);
-
-app.controller('createController', ['$scope', '$http', function ($scope, $http) {
-        function getTasks($scope) {
-        $http.get('/create').then(response => {
-            console.log('reponse',response);
+app.controller('postController', ['$scope','$http', function ($scope, $http) {
+    console.log('working post');
+    $http.get('/create').then(response => {
+        console.log('reponse',response);
         $scope.create = response.data.create;
     })
+
+
+ }]);
+
+app.controller('createController', ['$scope', '$http', function ($scope, $http) {
+    function getTasks($scope) {
+        $http.get('/create').then(response => {
+            console.log('reponse',response);
+            $scope.create = response.data.create;
+        })
     }
 
 
@@ -60,6 +66,7 @@ app.controller('createController', ['$scope', '$http', function ($scope, $http) 
         });
         $http.post('/create', {
             title: this.createTaskInput,
+            detail: this.detailTaskInput
         }).then(response => {
             //getTasks($scope);
             //.createTaskInput = '';

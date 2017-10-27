@@ -2,7 +2,21 @@ import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
 
 
-const app = angular.module('app', [uiRouter]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const app = angular.module('app', [uiRouter]);
 
 // export default class createController {
 //     testData() {
