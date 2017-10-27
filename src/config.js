@@ -41,7 +41,7 @@ app.controller('postController', ['$scope','$http', function ($scope, $http) {
     console.log('working post');
     $http.get('/create').then(response => {
         console.log('reponse',response);
-        $scope.create = response.data.create;
+        $scope.post = response.data.create;
     })
 
 
@@ -49,7 +49,7 @@ app.controller('postController', ['$scope','$http', function ($scope, $http) {
 
 app.controller('createController', ['$scope', '$http', function ($scope, $http) {
     function getTasks($scope) {
-        $http.get('/create').then(response => {
+        $http.get('/').then(response => {
             console.log('reponse',response);
             $scope.create = response.data.create;
         })
